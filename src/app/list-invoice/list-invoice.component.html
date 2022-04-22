@@ -1,0 +1,19 @@
+ <!-- bech te5dem biha lezem importi modul   ngModel -->
+  <!-- tenajamch zouz ng fard balise  -->
+
+  <!-- ajout yesir fil parent wel edit moch fil fils -->
+
+  <!-- condition kol fil ts fil reactive form  -->
+  <ul>
+    <li *ngFor="let i of invoices; let position=index">
+        {{i.idInvoice}} ** {{i.discountAmount}} ** {{i.billAmount}}
+        ** {{i.dateBill}}  ** {{i.Status}}  
+        <button (click)="editInvoice(i)">Edit</button> 
+        <button>Delete</button>
+    </li>
+</ul>
+<button (click)="showForm()">Add</button>
+<app-edit-invoice (edited)="editMyInvoice($event)" [prop2]="nb" [invoiceToEdit]="invoiceToEditParent" *ngIf="show"></app-edit-invoice>
+<!-- invoiceToEdit fils bech te5ou meta3 parent eli éné fih taw -->
+<app-add-invoice (aded)="addInvoice($event)" *ngIf="showAdd"></app-add-invoice>
+<!-- lezem te3aytelleha houni bech tetsama fils moch router outlet  -->
